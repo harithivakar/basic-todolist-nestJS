@@ -1,0 +1,13 @@
+/* eslint-disable prettier/prettier */
+import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose'
+import { ItemsController } from './items.controller';
+import { ItemsService } from './items.service';
+import { ItemSchema } from './schemas/todo.schema';
+
+@Module({
+  imports: [MongooseModule.forFeature([{ name: 'Todo', schema: ItemSchema}])],
+  controllers: [ItemsController],
+  providers: [ItemsService],
+})
+export class ItemsModule {}
